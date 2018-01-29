@@ -6,7 +6,7 @@
   </head>
   <body>
     <script>
-// Now it is your turn.  
+// Now it is your turn.
 
 /* Here is what you start with:
  * You have a function. When you call it with a message argument,
@@ -76,7 +76,7 @@ renderSomethingOnThePage(
  * _Confused about what `extend` means or does? This is all about the prototype
  * and inhertance. If you're stuck, halp yourself a teacher to explain._
  */
-var Message = Backbone.Model.extend({  
+var Message = Backbone.Model.extend({
   /* Our messages should have two methods that someone could call.
    * The first one, `initialize`, is specific to Backbone.
    *
@@ -101,7 +101,9 @@ var Message = Backbone.Model.extend({
      * Putting it into the initialize function let's us be sure that
      * all models that are created will have event listeners on them.
      */
-    this.on(YOUR CODE HERE);
+    this.on('change', function(e) {
+      renderSomethingOnThePage(e.changed.message);
+    });
     /* It is your turn to write the event handler.
      *
      * Make an event listener that will listen for a `change` in this model's
